@@ -1,2 +1,2 @@
 #!/bin/bash
-tr 'a-m n-z' 'n-z a-m' < letters
+tr 'a-m n-z' 'n-z a-m'
