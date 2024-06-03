@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-'''
-for a given employee ID, returns information about his/her TODO list progress
-'''
+'''for a given employee ID, returns information about his/her TODO list progress'''
 
 import re
 import request
@@ -22,4 +20,3 @@ if __name__ == "__main__":
             if len(completed_tasks) > 0:
                 for task in completed_tasks:
                     print('\t {}'.format(task.get('title')))
-
