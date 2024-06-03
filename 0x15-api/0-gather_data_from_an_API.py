@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''for a given employee ID, returns information about his/her TODO list progress'''
+'''get data from API'''
 
 import re
 import request
