@@ -9,16 +9,13 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    Function that queries the Reddit API
-    - If not a valid subreddit, return 0.
-    """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json?allow_over18=true"
-  headers = {"User-Agent": "Custom"}
-  try:
+    """returns the total number of subscribers"""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "webscrape:v1.0.0 (by /u/Mean-Cranberry7153)"
+    }
     response = requests.get(url, headers=headers, allow_redirects=False)
-    response.raise_for_status()
-    data = response.json()
-    return data.get("data", {}).get("subscribers", 0)
-  except requests.exceptions.RequestException:
-    return 0
+    if response.status_code == 404:
+        return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
